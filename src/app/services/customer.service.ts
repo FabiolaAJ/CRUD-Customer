@@ -54,33 +54,19 @@ export class CustomerService {
         });
 
        
-        return this.http.post('http://localhost:3000/update', data.customer, {headers: headers})
+        return this.http.put('http://localhost:3000/update', data.customer,{headers: headers} )
     
     }
     
     removeCustomer (id: number) :Observable<any>  {    
-        
         const headers = new HttpHeaders({
             'Content-Type': 'application/json; charset=UTF-8', 
         });
-
-        console.log(id)
-        return this.http.get('http://localhost:3000/delete/'+id)
-    
+        
+        return this.http.delete('http://localhost:3000/delete/'+id,{headers: headers}  )
     }
 
-    // removeAllAccessFilters(data : any) : Observable<AccessManagementModel>{
-        
-    //     return this.authService.authToken()
-    //     .pipe(switchMap(auth => {
-    //         const headers = new HttpHeaders({
-    //             'Content-Type': 'application/json', 
-    //             'Authorization': `Bearer ${auth.data.token}`
-    //         });
-        
-    //         return this.http.delete(baseAPI + '/v1/filtro/removeAll/'+data.tipo_categoria ,{headers : headers})
-    //     }));
-    // }
+ 
 
  
 }
