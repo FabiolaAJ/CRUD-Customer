@@ -1,0 +1,70 @@
+<section>
+    <div class="container">
+        <div class="card mt-5">
+            <form class="m-5" [formGroup]="formAdd" >
+                <div class="form-group">
+                  <input type="text" formControlName="name" placeholder="Name" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="email" placeholder="E-mail" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="phone" placeholder="Phone" class="form-control">
+                </div>
+    
+                <div class="row">
+                    <div class="col-12 ">
+                        <div class="float-right">
+                          <button type="reset" class="btn btn-md btn-outline-secondary">Reset</button>    
+                          <button type="button" (click)="addCustomer()" *ngIf="!update" class="btn btn-md ml-4 btn-outline-primary add">Submit</button>
+                          <button type="button" (click)="updateCustomer()" *ngIf="update" class="btn btn-md ml-4 btn-outline-primary update">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        
+
+        <div class="mt-5">
+
+          
+            <div class="col-4 mb-4">
+                    <label for="exampleFormControlSelect1">Filter users</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                    <option> All users</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    </select>
+
+            </div>
+
+             
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Actions</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let customer of CustomerList">
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.phone}}</td>
+                    <td><span style="cursor: pointer;" (click)="removeCustomer(customer)">DELETE</span> | <span style="cursor: pointer;" (click)="getCustomer(customer)">UPDATE</span> </td>
+                  </tr>              
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+
+</section>
