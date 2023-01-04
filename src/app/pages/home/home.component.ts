@@ -3,8 +3,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/app-state';
+import { mask_cellphone } from 'src/app/components/masks/masks';
 import { CustomerModel } from 'src/app/model/customerModel';
-import * as Customer from 'src/app/store/posts/customer.actions';
+import * as Customer from 'src/app/store/customer/customer.actions';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,8 @@ export class HomeComponent implements OnInit {
   readonly CustomerList$: Observable<CustomerModel[]> = this.store.select('customers');
   CustomerList : CustomerModel[] = [];
   public update = false;
+  mask_phone = mask_cellphone;
+
 
   constructor(private store: Store<AppState>, private formBuilder : FormBuilder, private el: ElementRef)  {
 

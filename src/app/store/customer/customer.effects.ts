@@ -93,7 +93,6 @@ export class CustomerEffects {
                         return new CustomerActions.RemoveCustomerSuccess(res.data)}),
                     
                     catchError((error: any) => { 
-                     console.log(error);
                       Swal.fire(error.error.message,'', 'error');
                       return of ( new CustomerActions.RemoveCustomerError(error));
                     })
@@ -102,25 +101,7 @@ export class CustomerEffects {
              ),
          )
 
-    //   removeAllFilters$ = createEffect(() => 
-    //   this.actions$
-    //       .pipe (
-    //           ofType<accessManagementActions.RemoveAllAccessFilters>( accessManagementActions.REMOVE_ALL_ACCESS_FILTERS ),
-    //           mergeMap(
-    //               data => this.accessManagementService.removeAllAccessFilters(data)
-    //               .pipe(
-    //                 map((res: any) => { 
-    //                     Swal.fire(res.message,'', 'success')
-    //                     return new accessManagementActions.RemoveAllAccessFilterSuccess(res.data)}),
-                    
-    //                 catchError((error: any) => { 
-    //                   Swal.fire(error.error.message,'', 'error');
-    //                   return of ( new accessManagementActions.RemoveAllAccessFiltersError(error));
-    //                 })
-    //               ),
-    //           ),
-    //       )
-    //    );
+
 
  
   constructor(private actions$: Actions, private customerService : CustomerService) {      

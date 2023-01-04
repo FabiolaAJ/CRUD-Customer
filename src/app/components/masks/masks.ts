@@ -1,0 +1,1 @@
+export const mask_cellphone = '(00) 0 0000-0000';

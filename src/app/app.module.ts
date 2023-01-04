@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
-import { CustomerReducer } from './store/posts/customer.reducer';
+import { CustomerReducer } from './store/customer/customer.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { CustomerEffects } from './store/posts/customer.effects';
+import { CustomerEffects } from './store/customer/customer.effects';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
- 
+    NgxMaskModule.forRoot(),
     StoreModule.forRoot({
       customers: CustomerReducer,
      
